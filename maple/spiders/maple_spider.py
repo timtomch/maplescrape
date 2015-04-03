@@ -29,10 +29,9 @@ class MapleSpider(scrapy.Spider):
 			blurb = ""
 			for needle in listing.xpath('.//text()').extract():
 				blurb = blurb+needle
-				blurb = blurb+"\n"
 				#print needle
 				if addressfound == True:
-					address = address + "\n" + needle
+					address = address + "<br/>" + needle
 					item['address'] = address
 					addressfound = None
 				else:
@@ -47,7 +46,7 @@ class MapleSpider(scrapy.Spider):
 					match = re.search("[A-Z]{1}[0-9]{1}[A-Z]{1} [0-9]{1}[A-Z]{1}[0-9]{1}", needle)
 					if match is not None:
 						item['postalcode'] = match.group()
-				item['blurb'] = blurb
+				item['blurb'] = blurb.replace("\r\n","<br/>")
 			#items.append(item)
 			#print item['region'], ' - ', item['name']
 			yield item
