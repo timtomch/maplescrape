@@ -1,13 +1,13 @@
 # Mapping Ontario maple syrup
 
-This project is an attempt to scrape the address list of members of the Ontario Maple Syrup Producers Association
+This project was an attempt to scrape the address list of members of the Ontario Maple Syrup Producers Association
 that are registered as offering direct sales to the public, and display the results on a map.
+The data came from the OMSPA website: http://www.ontariomaple.com/ and is scraped using Scrapy - http://scrapy.org/
 
-The data comes from the OMSPA website: http://www.ontariomaple.com/ and is scraped using Scrapy - http://scrapy.org/
+Since then, the OMSPA has revamped their website and now [display all maple farms nicely on a map](http://www.ontariomaple.com/where-to-buy). This project is thus no longer necessary :) 
 
-Result: https://batchgeo.com/map/ontariomaple
 
-### Current issues
+### Issues
 * Isolating the address on the producers' list is not straightforward. Currently, the script locates the postal
 code and uses it for mapping, which can lead to unprecise results.
 * Because of the above issue, the whole blob of text for each producer is currently displayed in the info box. This
